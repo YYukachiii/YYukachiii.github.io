@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yyukachiiii.github.io/child/"/>
-  <updated>2019-08-28T12:41:49.034Z</updated>
+  <updated>2019-08-28T13:20:36.234Z</updated>
   <id>http://yyukachiiii.github.io/child/</id>
   
   <author>
@@ -17,26 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hexo主题</title>
+    <link href="http://yyukachiiii.github.io/child/2019/08/28/hexo%E4%B8%BB%E9%A2%98/"/>
+    <id>http://yyukachiiii.github.io/child/2019/08/28/hexo主题/</id>
+    <published>2019-08-28T13:20:36.000Z</published>
+    <updated>2019-08-28T13:20:36.234Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>spica</title>
     <link href="http://yyukachiiii.github.io/child/2019/08/28/spica/"/>
     <id>http://yyukachiiii.github.io/child/2019/08/28/spica/</id>
     <published>2019-08-28T02:44:30.000Z</published>
-    <updated>2019-08-28T12:41:49.034Z</updated>
+    <updated>2019-08-28T12:55:18.428Z</updated>
     
-    <content type="html"><![CDATA[<p>赵煜，来自沂蒙山区，23岁，研究生在读，现居北京。</p><p>平平无奇，喜欢动画，日语，音乐。不太善于与人交往，有三两要好的朋友。人生的前20年略单调，近几年心智才逐渐成熟，且一直在改变。</p>]]></content>
+    <content type="html"><![CDATA[<p>赵煜，23岁，研究生在读，现居北京。</p><p>平平无奇，喜欢动画，日语，音乐。不喜，有三两要好的朋友。人生的前20年略单调，近几年心智才逐渐成熟，一直不急不慢的改变着。</p><p>SPiCa</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;赵煜，来自沂蒙山区，23岁，研究生在读，现居北京。&lt;/p&gt;
-&lt;p&gt;平平无奇，喜欢动画，日语，音乐。不太善于与人交往，有三两要好的朋友。人生的前20年略单调，近几年心智才逐渐成熟，且一直在改变。&lt;/p&gt;
+        &lt;p&gt;赵煜，23岁，研究生在读，现居北京。&lt;/p&gt;
+&lt;p&gt;平平无奇，喜欢动画，日语，音乐。不喜，有三两要好的朋友。人生的前20年略单调，近几年心智才逐渐成熟，一直不急不慢的改变着。&lt;/p&gt;
+&lt;p&gt;SPiCa&lt;/p&gt;
 
       
     
     </summary>
     
       <category term="spica" scheme="http://yyukachiiii.github.io/child/categories/spica/"/>
+    
+      <category term="yuka" scheme="http://yyukachiiii.github.io/child/categories/spica/yuka/"/>
     
     
       <category term="spica" scheme="http://yyukachiiii.github.io/child/tags/spica/"/>
