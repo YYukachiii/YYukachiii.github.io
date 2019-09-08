@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yyukachiiii.github.io/child/"/>
-  <updated>2019-08-28T14:14:00.496Z</updated>
+  <updated>2019-09-08T02:45:24.349Z</updated>
   <id>http://yyukachiiii.github.io/child/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nexmoe</title>
+    <link href="http://yyukachiiii.github.io/child/2019/08/29/nexmoe/"/>
+    <id>http://yyukachiiii.github.io/child/2019/08/29/nexmoe/</id>
+    <published>2019-08-29T01:16:49.000Z</published>
+    <updated>2019-09-08T02:45:24.349Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    从零开始学习创建基于hexo框架的主题模型。</p><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><h3 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h3><h6 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h6><blockquote><p>模板引擎是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的文档.</p></blockquote><p>​    简单来说，就是将模板文件和数据通过模板引擎生成一个HTML代码。能够让动态页面在渲染的时候，能够简化字符串的拼接操作。<img src="https://upload-images.jianshu.io/upload_images/8707272-8346cf5c4b91b284.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/871/format/webp" alt="avatar"></p><h6 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h6><ul><li><p>ejs</p><blockquote><p><font color="#19caad">EJS 是一套简单的模板语言，帮你利用普通的 JavaScript 代码生成 HTML 页面。</font></p></blockquote></li></ul><h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><h6 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h6><blockquote><p>层叠样式表(Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的<font color="#0099ff">计算机语言</font>。</p></blockquote><h3 id="CSS预处理器"><a href="#CSS预处理器" class="headerlink" title="CSS预处理器"></a>CSS预处理器</h3><h6 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h6><blockquote><p>CSS预处理器是用一种专门的编程语言，进行Web页面样式设计，然后再编译成正常的CSS文件，以供项目使用。</p></blockquote><h6 id="与CSS的关系"><a href="#与CSS的关系" class="headerlink" title="与CSS的关系"></a>与CSS的关系</h6><p>​    使用CSS语言之外的语言进行网页样式设计的代码，经过预处理器处理后，转换为标准CSS文件。</p><h2 id="代码答疑"><a href="#代码答疑" class="headerlink" title="代码答疑"></a>代码答疑</h2><h4 id="HEXO辅助函数"><a href="#HEXO辅助函数" class="headerlink" title="HEXO辅助函数"></a>HEXO辅助函数</h4><h5 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h5><h6 id="partial"><a href="#partial" class="headerlink" title="partial"></a>partial</h6><ul><li>作用：载入其他模板文件，在该代码的位置插入模板文件的代码</li><li>代码：<code>&lt;%- partial(layout, [locals], [options]) %&gt;</code></li><li><a href="https://hexo.io/zh-cn/docs/helpers" target="_blank" rel="noopener">详细信息</a></li></ul><h4 id="ejs相关代码"><a href="#ejs相关代码" class="headerlink" title="ejs相关代码"></a>ejs相关代码</h4><ul><li><p>&lt;% %&gt;的作用？</p><blockquote><p>在写网页代码时，有时需要用JavaScript的逻辑代码来渲染页面，但是JavaScript的代码与HTML的代码是不一样的，不好区分。</p><p>因此使用&lt;% %&gt;来包裹住逻辑代码，方便与HTML代码进行区分。</p></blockquote></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    从零开始学习创建基于hexo框架的主题模型。&lt;/p&gt;
+&lt;h2 id=&quot;前置知识&quot;&gt;&lt;a href=&quot;#前置知识&quot; class=&quot;headerlink&quot; title=&quot;前置知识&quot;&gt;&lt;/a&gt;前置知识&lt;/h2&gt;&lt;h3 id=&quot;模板引擎&quot;&gt;&lt;a href=&quot;#模板引擎&quot; 
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://yyukachiiii.github.io/child/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo主题</title>
