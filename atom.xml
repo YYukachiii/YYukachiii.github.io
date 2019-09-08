@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yyukachiiii.github.io/child/"/>
-  <updated>2019-09-08T02:45:24.349Z</updated>
+  <updated>2019-09-08T06:48:01.509Z</updated>
   <id>http://yyukachiiii.github.io/child/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Chapter 1.基础介绍</title>
+    <link href="http://yyukachiiii.github.io/child/2019/09/06/NLP/Chap.1/"/>
+    <id>http://yyukachiiii.github.io/child/2019/09/06/NLP/Chap.1/</id>
+    <published>2019-09-06T13:20:36.000Z</published>
+    <updated>2019-09-08T06:48:01.509Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Chapter-1-基础介绍"><a href="#Chapter-1-基础介绍" class="headerlink" title="Chapter 1.基础介绍"></a>Chapter 1.基础介绍</h1><h4 id="The-Supervised-Learning-Paradigm（范例）"><a href="#The-Supervised-Learning-Paradigm（范例）" class="headerlink" title="The Supervised Learning Paradigm（范例）"></a>The Supervised Learning Paradigm（范例）</h4><h6 id="符号表示"><a href="#符号表示" class="headerlink" title="符号表示"></a>符号表示</h6><ul><li>输入(观察值)：$x$</li><li>类别标签(ground truth)：$y$</li><li>类别的预测：$\hat{y}$</li></ul><h6 id="有价值的内容"><a href="#有价值的内容" class="headerlink" title="有价值的内容"></a>有价值的内容</h6><ul><li>实际应用中很少使用随机梯度下降(SGD),因为收敛非常慢</li></ul><h4 id="Observation-And-Target-Encoding"><a href="#Observation-And-Target-Encoding" class="headerlink" title="Observation And Target Encoding"></a>Observation And Target Encoding</h4><h6 id="文本的向量表示的方法"><a href="#文本的向量表示的方法" class="headerlink" title="文本的向量表示的方法"></a>文本的向量表示的方法</h6><ul><li>One-Hot Representation<ul><li>表示成句子或文档长度乘以词表大小的矩阵</li><li>表示成一个词汇表长度的向量(一般都是使用这种表示吧…)</li></ul></li><li>TF Representation<ul><li>TF表示是构成句子的词的one-hot的总和，即向量中每个条目是相应单词在句子中出现次数的计数</li></ul></li><li>TF-IDF(Inverse Document Frequency) Representation<ul><li>在TF表示的基础上，惩罚出现次数更多地条目，奖励罕见的符号</li><li>这样的启发式表示(?什么是启发式表示？？？)在深度学习中很少使用</li></ul></li><li>Target Encoding<ul><li>按照目标任务的具体情况选择文本的向量表示</li></ul></li><li>Word Embedding<ul><li>词向量的分布式表示</li></ul></li></ul><h4 id="Computional-Graphs"><a href="#Computional-Graphs" class="headerlink" title="Computional Graphs"></a>Computional Graphs</h4><p><img src="pic/ComputionalGraph.png" alt="avatar"></p><ul><li>在计算图中，结点是乘法和加法等数学运算，输入是节点的传入边，输出是结点的传出边。</li></ul><h4 id="PyTorch-Basics"><a href="#PyTorch-Basics" class="headerlink" title="PyTorch Basics"></a>PyTorch Basics</h4><h6 id="动态计算图"><a href="#动态计算图" class="headerlink" title="动态计算图"></a>动态计算图</h6><ul><li><p>分类</p><ul><li>TensorFlow</li><li>Caffe(贾扬清开发的深度学习框架)</li><li>Theano</li></ul></li><li><p>特点</p><ul><li>在计算之前，需要声明、编译和执行计算图</li><li>计算效率高，在生产中非常有用</li></ul></li></ul><h6 id="静态计算图"><a href="#静态计算图" class="headerlink" title="静态计算图"></a>静态计算图</h6><ul><li>分类<ul><li>PyTorch</li><li>Chainer</li><li>DyNet</li></ul></li><li>特点<ul><li>更加灵活，不需要在每次执行(计算)之前再进行编译</li><li>每个输入(什么意思?)可能导致不同的图结构</li></ul></li></ul><h6 id="张量"><a href="#张量" class="headerlink" title="张量"></a>张量</h6><ul><li>定义</li><li>零阶张量：标量(数字)</li><li>一阶张量：向量（数字数组）</li><li>二阶张量：矩阵（向量数组）</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Chapter-1-基础介绍&quot;&gt;&lt;a href=&quot;#Chapter-1-基础介绍&quot; class=&quot;headerlink&quot; title=&quot;Chapter 1.基础介绍&quot;&gt;&lt;/a&gt;Chapter 1.基础介绍&lt;/h1&gt;&lt;h4 id=&quot;The-Supervised-Le
+      
+    
+    </summary>
+    
+    
+      <category term="NLP" scheme="http://yyukachiiii.github.io/child/tags/NLP/"/>
+    
+      <category term="PyTorch" scheme="http://yyukachiiii.github.io/child/tags/PyTorch/"/>
+    
+  </entry>
   
   <entry>
     <title>nexmoe</title>
@@ -51,36 +76,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>spica</title>
-    <link href="http://yyukachiiii.github.io/child/2019/08/28/spica/"/>
-    <id>http://yyukachiiii.github.io/child/2019/08/28/spica/</id>
-    <published>2019-08-28T02:44:30.000Z</published>
-    <updated>2019-08-28T12:55:18.428Z</updated>
-    
-    <content type="html"><![CDATA[<p>赵煜，23岁，研究生在读，现居北京。</p><p>平平无奇，喜欢动画，日语，音乐。不喜，有三两要好的朋友。人生的前20年略单调，近几年心智才逐渐成熟，一直不急不慢的改变着。</p><p>SPiCa</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;赵煜，23岁，研究生在读，现居北京。&lt;/p&gt;
-&lt;p&gt;平平无奇，喜欢动画，日语，音乐。不喜，有三两要好的朋友。人生的前20年略单调，近几年心智才逐渐成熟，一直不急不慢的改变着。&lt;/p&gt;
-&lt;p&gt;SPiCa&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="spica" scheme="http://yyukachiiii.github.io/child/categories/spica/"/>
-    
-      <category term="yuka" scheme="http://yyukachiiii.github.io/child/categories/spica/yuka/"/>
-    
-    
-      <category term="spica" scheme="http://yyukachiiii.github.io/child/tags/spica/"/>
     
   </entry>
   
