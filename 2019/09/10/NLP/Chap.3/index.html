@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ddlogo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ddlogo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="NLP,PyTorch,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SPiCa" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Chapter 3.神经网络基础组件Perceptron: The Simplest Neural Network​    图解感知机结构：(图的链接是在是太长了，要考虑一下解决办法)  ​    激活函数的选择有很多种，这里选择了Sigmoid函数。 Activation Functions​    这里列出本书中用到的四个激活函数：(都已经比较熟悉了，就不多做解释了)  Sigmod 12x">
+<meta name="keywords" content="NLP,PyTorch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用PyTorch学习NLP Chapter 1.神经网络基础组件">
+<meta property="og:url" content="http://yyukachiiii.github.io/child/2019/09/10/NLP/Chap.3/index.html">
+<meta property="og:site_name" content="SPiCa">
+<meta property="og:description" content="Chapter 3.神经网络基础组件Perceptron: The Simplest Neural Network​    图解感知机结构：(图的链接是在是太长了，要考虑一下解决办法)  ​    激活函数的选择有很多种，这里选择了Sigmoid函数。 Activation Functions​    这里列出本书中用到的四个激活函数：(都已经比较熟悉了，就不多做解释了)  Sigmod 12x">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="data:image/png;base64,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">
+<meta property="og:updated_time" content="2019-09-11T07:00:44.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用PyTorch学习NLP Chapter 1.神经网络基础组件">
+<meta name="twitter:description" content="Chapter 3.神经网络基础组件Perceptron: The Simplest Neural Network​    图解感知机结构：(图的链接是在是太长了，要考虑一下解决办法)  ​    激活函数的选择有很多种，这里选择了Sigmoid函数。 Activation Functions​    这里列出本书中用到的四个激活函数：(都已经比较熟悉了，就不多做解释了)  Sigmod 12x">
+<meta name="twitter:image" content="data:image/png;base64,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">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yyukachiiii.github.io/child/2019/09/10/NLP/Chap.3/">
+
+
+
+
+
+  <title>用PyTorch学习NLP Chapter 1.神经网络基础组件 | SPiCa</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SPiCa</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+<script>
+	
+	window.onload = function(){
+		var path = 'http://yyukachiii.github.io'; //这里要改成你博客的地址
+		var localhostItem = String(window.location).split(path)[1];
+		var LiNode = document.querySelectorAll('#menu > li > a')
+		
+		for(var i = 0; i< LiNode.length;i++){
+			var item = String(LiNode[i].href).split(path)[1];
+			if(item == localhostItem && item != undefined){
+				LiNode[i].setAttribute('style','border-bottom:1px solid black');
+			}
+		}
+	};
+
+</script>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yyukachiiii.github.io/child/2019/09/10/NLP/Chap.3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SPiCa_zY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/shaokandianerciyuan.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SPiCa">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用PyTorch学习NLP Chapter 1.神经网络基础组件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-10T14:31:09+08:00">
+                2019-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/深度学习框架/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习框架</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/深度学习框架/PyTorch/" itemprop="url" rel="index">
+                    <span itemprop="name">PyTorch</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Chapter-3-神经网络基础组件"><a href="#Chapter-3-神经网络基础组件" class="headerlink" title="Chapter 3.神经网络基础组件"></a>Chapter 3.神经网络基础组件</h1><h2 id="Perceptron-The-Simplest-Neural-Network"><a href="#Perceptron-The-Simplest-Neural-Network" class="headerlink" title="Perceptron: The Simplest Neural Network"></a>Perceptron: The Simplest Neural Network</h2><p>​    图解感知机结构：(图的链接是在是太长了，要考虑一下解决办法)</p>
+<p><img src="data:image/png;base64,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" alt="avatar"></p>
+<p>​    激活函数的选择有很多种，这里选择了Sigmoid函数。</p>
+<h2 id="Activation-Functions"><a href="#Activation-Functions" class="headerlink" title="Activation Functions"></a>Activation Functions</h2><p>​    这里列出本书中用到的四个激活函数：(都已经比较熟悉了，就不多做解释了)</p>
+<ul>
+<li><p>Sigmod</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.range(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">0.1</span>)</span><br><span class="line">y = torch.sigmoid(x)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tanh</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.range(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">0.1</span>)</span><br><span class="line">y = torch.tanh(x)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ReLU</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = torch.range(<span class="number">-5</span>, <span class="number">5</span>, <span class="number">0.1</span>)</span><br><span class="line">y = torch.relu(x)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>Softmax</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">softmax = torch.nn.Softmax(dim=<span class="number">1</span>)</span><br><span class="line">x = torch.randn(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line">y = softmax(x)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h2 id="Loss-Functions"><a href="#Loss-Functions" class="headerlink" title="Loss Functions"></a>Loss Functions</h2><ul>
+<li>Mean Squared Error Loss</li>
+<li>Categorical Cross-Entropy Loss<ul>
+<li>PyTorch中的计算交叉熵的对象的输入是未经过Softmax变换的预测值和各个样本的类标号构成的向量(为转换成One-hot向量)</li>
+</ul>
+</li>
+<li>Binary Cross-Entropy<ul>
+<li>不同于Categorical Cross-Entropy Loss，二元交叉熵的输入是预测值的概率分布和样本的类标号构成的向量</li>
+<li>逻辑回归的损失函数实际上就是二元交叉熵损失</li>
+</ul>
+</li>
+</ul>
+<h2 id="Diving-Deep-into-Supervised-Training"><a href="#Diving-Deep-into-Supervised-Training" class="headerlink" title="Diving Deep into Supervised Training"></a>Diving Deep into Supervised Training</h2><p>​    统计学习方法的三要素：</p>
+<ul>
+<li>模型</li>
+<li>策略(经验风险最小化、结构风险最小化)</li>
+<li>算法(BP等等)</li>
+</ul>
+<p>​    完成一个有监督学习任务还需要训练数据。</p>
+<h3 id="Putting-It-Together-Gradient-Based-Supervised-Learning"><a href="#Putting-It-Together-Gradient-Based-Supervised-Learning" class="headerlink" title="Putting It Together:Gradient-Based Supervised Learning"></a>Putting It Together:Gradient-Based Supervised Learning</h3><p>​    PyTorch完成一个学习过程的步骤如下：</p>
+<ul>
+<li><p>选择模型和用于训练模型的数据</p>
+</li>
+<li><p>使用名为zero_grad()的函数清除存储在模型对象中的所有信息(如梯度)</p>
+</li>
+<li><p>模型计算给定输入数据(x_data)的输出(y_pred)</p>
+</li>
+<li><p>计算损失函数，通过比较模型输出(y_pred)和y_target来计算损失</p>
+</li>
+<li><p>PyTorch损失对象(criteria)具有一个名为backward()的函数，该函数迭代地通过计算图向后传播损失，并将梯度通知给每个参数</p>
+</li>
+<li><p>最后，优化器(optim)用一个名为step()的函数指示参数如何在已知梯度的情况下更新参数</p>
+<p>至此，完成了一次参数的更新。</p>
+</li>
+</ul>
+<h3 id="Correctly-Measuring-Model-Performance-Splitting-the-Dataset"><a href="#Correctly-Measuring-Model-Performance-Splitting-the-Dataset" class="headerlink" title="Correctly Measuring Model Performance:Splitting the Dataset"></a>Correctly Measuring Model Performance:Splitting the Dataset</h3><p>​    我们训练模型的最终目标是使模型能够很好的概括数据的真实分布。然而数据有限，所以其实数据的真实分布是不得而知的。因此当模型过度拟合训练数据的分布时，因为训练数据不能够代表全部数据的真实分布，这个时候就会产生过拟合。</p>
+<p>​    如何避免过拟合(顺便提一嘴)：</p>
+<ul>
+<li>增加训练数据</li>
+<li>降维</li>
+<li>正则化</li>
+</ul>
+<p>​    如何选择模型：</p>
+<ul>
+<li>在训练数据比较充足时，可以将训练数据划分为训练集、验证集和测试集</li>
+<li>大多数情况下，训练数据没有那么充裕，这个时候可以使用交叉验证</li>
+</ul>
+<h3 id="Knowing-When-to-Stop-Training"><a href="#Knowing-When-to-Stop-Training" class="headerlink" title="Knowing When to Stop Training"></a>Knowing When to Stop Training</h3><ul>
+<li>选择模型训练的epoch数目一般使用启发式发放，一般称为早停止<ul>
+<li>在每个epoch或每N个epoch结束后，查看模型在验证集上的结果，如果验证集准确率要高于之前的模型，则保留当前训练的模型副本，否则停止训练</li>
+<li>将测试性能最优的模型作为最后的训练结果</li>
+</ul>
+</li>
+</ul>
+<h3 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h3><ul>
+<li>L2正则化<ul>
+<li>在pytorch中，可以通过在优化器(optim)中设置weight_decay参数来控制正则化的程度</li>
+</ul>
+</li>
+<li>结构正则化技术<ul>
+<li>Dropout</li>
+</ul>
+</li>
+<li>L1正则化<ul>
+<li>鼓励稀疏解</li>
+</ul>
+</li>
+</ul>
+<h2 id="Example：Classifying-Sentiment-of-Restaurant-Reviews"><a href="#Example：Classifying-Sentiment-of-Restaurant-Reviews" class="headerlink" title="Example：Classifying Sentiment of Restaurant Reviews"></a>Example：Classifying Sentiment of Restaurant Reviews</h2><h3 id="The-Yelp-Review-Dataset"><a href="#The-Yelp-Review-Dataset" class="headerlink" title="The Yelp Review Dataset"></a>The Yelp Review Dataset</h3><p>​    Yelp评论数据集最初是2015年由Yelp(美国最大的点评网站)举办的文本情感分类比赛中提出的，其中有56万个训练样本和3.8万个测试样本。在这里是选择了10%的训练数据作为完整数据集。</p>
+<p>​    <font color="#0099ff">使用一个小数据集可以快速进行试验，可以使用从较小数据集子集中获得的知识对整个数据集进行重新训练。在训练深度学习模型时，这是一个非常有用的技巧。</font></p>
+<ul>
+<li>通过训练集来得到模型的参数</li>
+<li>通过验证集选择最优的超参数</li>
+<li>通过测试集对模型进行最终的评估和报告</li>
+</ul>
+<p>​    在几乎每个实例中， 都使用Vocabulary，Vectorizer和Dataset这三个类来执行一个关键的pipeline：将文本输入转化为小批量的向量。</p>
+<h3 id="Understanding-PyTorch’s-Dataset-Representation"><a href="#Understanding-PyTorch’s-Dataset-Representation" class="headerlink" title="Understanding PyTorch’s Dataset Representation"></a>Understanding PyTorch’s Dataset Representation</h3><p>​    PyTorch通过提供 class Dataset为数据集提供了一个抽象，在对新数据集使用PyTorch时，新的数据集类必须继承Dataset类，并实现<strong>getitem</strong>和<strong>len</strong>方法。</p>
+<p>​    通过针对每个实际的数据集实现继承PyTorch的新的数据集类，允许各种PyTorch程序使用新实现的数据集类。</p>
+<p>​    ReviewDataset Class的结构：</p>
+<ul>
+<li>__init__()<ul>
+<li>重写构造函数，为各种变量赋值<ul>
+<li>self.review_df - 数据集(什么样的数据集？)</li>
+<li>self._vectorizer - 向量化的数据集</li>
+<li>训练集、验证集、测试集变量</li>
+<li>其他</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font color="#ff0000">@classmethod</font> load_dataset_and_make_vectorizer()<ul>
+<li>加载数据集并创建向量化的实例</li>
+<li><font color="#ff0000">@classmethod</font> 是类的内置函数，它能够自己创建一个类的实例</li>
+</ul>
+</li>
+<li><font color="#ff0000">@classmethod</font> load_dataset_and_load_vectorizer()<ul>
+<li>加载数据集和向量化的实例</li>
+<li><font color="#ff0000">@classmethod</font> 这两个内置函数实际上完成了两个任务<ul>
+<li>在没有正确格式的数据集和向量时先对数据进行格式化</li>
+<li>然后再创建Dataset的实例</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font color="#ff0000">@staticmethod</font> load_vectorizer_only()<ul>
+<li>仅加载向量</li>
+</ul>
+</li>
+<li>save_vectorizer()<ul>
+<li>将向量化的实例使用json存储到硬盘</li>
+</ul>
+</li>
+<li>get_vectorizer()<ul>
+<li>返回向量(仅仅是将类的属性返回)</li>
+</ul>
+</li>
+<li>get_split()<ul>
+<li>选择将要处理的数据，并给类的对应属性赋值</li>
+</ul>
+</li>
+<li>__len__(self)<ul>
+<li>返回要处理数据的size</li>
+</ul>
+</li>
+<li>__getitem__()<ul>
+<li>重写的PyTorch的Dataset类的方法</li>
+<li>暂时没看明白是干什么的》。。。</li>
+</ul>
+</li>
+<li>get_num_batcher()<ul>
+<li>输入批的大小，返回批的数量</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Vocabulary-the-Vectorizer-and-the-DataLoader"><a href="#The-Vocabulary-the-Vectorizer-and-the-DataLoader" class="headerlink" title="The Vocabulary, the Vectorizer, and the DataLoader"></a>The Vocabulary, the Vectorizer, and the DataLoader</h3><h4 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h4><p>​    从文本到向量化的minibatch处理的第一步是将每个token映射到它的向量标号。实现方法是在token和标号之间有一个双向映射。这两个映射被封装到Vocabulary中。</p>
+<p>​    Vocabulary类的结构如下：</p>
+<ul>
+<li>__init()__<ul>
+<li>self._token_to_idx 一个完成从token到ID的映射的字典</li>
+<li>self._idx_to_token 完成从id到token的映射</li>
+</ul>
+</li>
+<li>to_serializable()<ul>
+<li>返回一个可以被序列化的字典</li>
+</ul>
+</li>
+<li><font color="#ff0000">@classmethod</font> from_serializable()<ul>
+<li>从一个序列化的字典(to_serializable返回的对象)中创建Vocabulary实例</li>
+</ul>
+</li>
+<li>add_token()<ul>
+<li>根据token更改两个映射字典</li>
+</ul>
+</li>
+<li>add_many()<ul>
+<li>添加许多个token到Vocabulary中</li>
+</ul>
+</li>
+<li>lookup_token()<ul>
+<li>查找token的index，如果token没出现，就返回UNK的index</li>
+</ul>
+</li>
+<li>lookup_index()<ul>
+<li>查找index对应的token</li>
+</ul>
+</li>
+<li>__str__()<ul>
+<li>返回self的大小(?)</li>
+</ul>
+</li>
+<li>__len__()<ul>
+<li>返回映射的大小</li>
+</ul>
+</li>
+</ul>
+<h4 id="Vectorizer"><a href="#Vectorizer" class="headerlink" title="Vectorizer"></a>Vectorizer</h4><p>​    ReviewVectorizer()的结构：</p>
+<ul>
+<li>__init__()<ul>
+<li>self.review_vocab 将词(word)与整数匹配</li>
+<li>self.rating_vocab 将类别标签与整数匹配</li>
+</ul>
+</li>
+<li>vectorize()<ul>
+<li>创建一个review的one-hot向量</li>
+</ul>
+</li>
+<li><font color="#ff0000">@classmethod</font> form_dataframe()<ul>
+<li>从Dataset 的dataframe结构实例化向量(?究竟干了啥)</li>
+<li>创建了一个一样的向量</li>
+</ul>
+</li>
+<li><font color="#ff0000">@classmethod</font> from_serializable()<ul>
+<li>从serializable dictionary 创建一个评论向量</li>
+</ul>
+</li>
+<li>to_serializable()<ul>
+<li>Create the serializable dictionary for caching</li>
+</ul>
+</li>
+</ul>
+<h4 id="Dataloader"><a href="#Dataloader" class="headerlink" title="Dataloader"></a>Dataloader</h4><p>​    文本向量化小批处理的最后一个阶段是对向量化的数据分组。PyTorch提供了一个名为DataLoader的内置类来协调这个过程。DataLoader通过提供一个PyTorch数据集、一个batch_size和一些关键字参数来实例化，得到的对象是一个python迭代器。</p>
+<p>​    本例中，通过在定义函数generate_batcher()中使用DataLoader内置类，来实现batch的迭代。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_batches</span><span class="params">(dataset, batch_size, shuffle=True, drop_last=True, device=<span class="string">"cpu"</span>)</span>:</span></span><br><span class="line">    ......</span><br></pre></td></tr></table></figure>
+
+<h3 id="A-Percptron-Classifier"><a href="#A-Percptron-Classifier" class="headerlink" title="A Percptron Classifier"></a>A Percptron Classifier</h3><p>​    定义一个ReviewClassifier类，来实现计算模型的预测值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReviewClassifier</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    ......</span><br></pre></td></tr></table></figure>
+
+<h3 id="The-Training-Routine"><a href="#The-Training-Routine" class="headerlink" title="The Training Routine"></a>The Training Routine</h3><p>​    这里的训练模型的历程可以看做一种规范，在深度学习的开发中，可以将这看做一种习惯。</p>
+<p>​    使用python内置的argparse模块来进行参数的管理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> argparse <span class="keyword">import</span> Namespace</span><br><span class="line"></span><br><span class="line">args = Namespace(......)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Setting-The-Stage-For-The-Training-To-Begin"><a href="#Setting-The-Stage-For-The-Training-To-Begin" class="headerlink" title="Setting The Stage For The Training To Begin"></a>Setting The Stage For The Training To Begin</h4><ul>
+<li>初始训练状态</li>
+<li>实例化数据集和模型</li>
+<li>实例化损失函数和优化器</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_train_state</span><span class="params">(args)</span>:</span></span><br><span class="line">    ......</span><br><span class="line">    </span><br><span class="line">train_state = make_train_state(args)</span><br><span class="line"></span><br><span class="line"><span class="comment"># dataset and vectorizer</span></span><br><span class="line">dataset = ReviewDataset.load_dataset_and_make_vectorizer(arts.review_csv)</span><br><span class="line">vectorizer = data.get_vectorizer()</span><br><span class="line"></span><br><span class="line"><span class="comment"># model,仅仅给出预测</span></span><br><span class="line">classifier =  ReviewClassifier(num_features = len(vectorizer.review_vocab))</span><br><span class="line">classifier = classifier.to(args.device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loss and optimizer， 计算损失并进行优化</span></span><br><span class="line">loss_func = nn.BCEWithLogitsLoss()</span><br><span class="line">optimizer = optim.Adam(classifier.parameters(), lr=args.learning_rate)</span><br></pre></td></tr></table></figure>
+
+<h4 id="The-Training-Loop"><a href="#The-Training-Loop" class="headerlink" title="The Training Loop"></a>The Training Loop</h4><p>​    训练循环由两个循环组成：内循环覆盖数据集中的mini-batch，另一个外循环重复内循环若干次。在每个内部循环中，计算损失，并使用优化器更新模型参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch_index <span class="keyword">in</span> range(args.num_epoch):</span><br><span class="line">    <span class="comment"># 初始化参数</span></span><br><span class="line">    <span class="keyword">for</span> batch_index, batch_dict <span class="keyword">in</span> enumerate(batch_generator):</span><br><span class="line">        <span class="comment"># 1. zero the gradients</span></span><br><span class="line">        <span class="comment"># 2. compute the output</span></span><br><span class="line">        <span class="comment"># 3. compute the loss</span></span><br><span class="line">        <span class="comment"># 4. use loss to produce gradients</span></span><br><span class="line">        <span class="comment"># 5. use optimizer to take gradient step</span></span><br><span class="line">        <span class="comment"># compute the accuracy</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 在训练完每个epoch之后在计算模型在验证集上的准确率，从而判断是否发生了过拟合</span></span><br><span class="line">    <span class="keyword">for</span> batch_index, batch_dict <span class="keyword">in</span> enumerate(batch_generator):</span><br><span class="line">        <span class="comment"># 1. compute the output</span></span><br><span class="line">        <span class="comment"># 2. compute the loss</span></span><br><span class="line">        <span class="comment"># 3. compute the accuracy</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 结束一个epoch的训练过程，中间过程的结果都被保存到了train_state中</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Evaluation-Inference-and-Inspection"><a href="#Evaluation-Inference-and-Inspection" class="headerlink" title="Evaluation, Inference, and Inspection"></a>Evaluation, Inference, and Inspection</h3><h4 id="Evaluation-Inference-and-Inspection-1"><a href="#Evaluation-Inference-and-Inspection-1" class="headerlink" title="Evaluation, Inference, and Inspection"></a>Evaluation, Inference, and Inspection</h4><p>​    在测试集上进行验证的过程与在验证集上进行计算的过程完全相同。</p>
+<h4 id="Inference-And-Classifying-New-Data-Points"><a href="#Inference-And-Classifying-New-Data-Points" class="headerlink" title="Inference And Classifying New Data Points"></a>Inference And Classifying New Data Points</h4><p>​    在新数据上进行推断，看模型效果如何。</p>
+<h4 id="Inspecting-Model-Weights"><a href="#Inspecting-Model-Weights" class="headerlink" title="Inspecting Model Weights"></a>Inspecting Model Weights</h4><p>​    另一种检查模型在完成训练后是否表现良好的方法是检查权重，对权重是否正确做出判断。</p>
+<p>​    对当前的这个任务来说这种方法是可行的，但是并不通用。</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+            <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/09/论文阅读/人机对话/" rel="next" title="对话系统">
+                <i class="fa fa-chevron-left"></i> 对话系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/shaokandianerciyuan.jpg" alt="SPiCa_zY">
+            
+              <p class="site-author-name" itemprop="name">SPiCa_zY</p>
+              <p class="site-description motion-element" itemprop="description">一个平凡而又不甘于平凡的人。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YYukachiii" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/SPiCa68541996" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/yyukachiii" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.hankcs.com/" title="Hankcs" target="_blank">Hankcs</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-3-神经网络基础组件"><span class="nav-number">1.</span> <span class="nav-text">Chapter 3.神经网络基础组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Perceptron-The-Simplest-Neural-Network"><span class="nav-number">1.1.</span> <span class="nav-text">Perceptron: The Simplest Neural Network</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activation-Functions"><span class="nav-number">1.2.</span> <span class="nav-text">Activation Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Loss-Functions"><span class="nav-number">1.3.</span> <span class="nav-text">Loss Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diving-Deep-into-Supervised-Training"><span class="nav-number">1.4.</span> <span class="nav-text">Diving Deep into Supervised Training</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Putting-It-Together-Gradient-Based-Supervised-Learning"><span class="nav-number">1.4.1.</span> <span class="nav-text">Putting It Together:Gradient-Based Supervised Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Correctly-Measuring-Model-Performance-Splitting-the-Dataset"><span class="nav-number">1.4.2.</span> <span class="nav-text">Correctly Measuring Model Performance:Splitting the Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Knowing-When-to-Stop-Training"><span class="nav-number">1.4.3.</span> <span class="nav-text">Knowing When to Stop Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization"><span class="nav-number">1.4.4.</span> <span class="nav-text">Regularization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example：Classifying-Sentiment-of-Restaurant-Reviews"><span class="nav-number">1.5.</span> <span class="nav-text">Example：Classifying Sentiment of Restaurant Reviews</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Yelp-Review-Dataset"><span class="nav-number">1.5.1.</span> <span class="nav-text">The Yelp Review Dataset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Understanding-PyTorch’s-Dataset-Representation"><span class="nav-number">1.5.2.</span> <span class="nav-text">Understanding PyTorch’s Dataset Representation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Vocabulary-the-Vectorizer-and-the-DataLoader"><span class="nav-number">1.5.3.</span> <span class="nav-text">The Vocabulary, the Vectorizer, and the DataLoader</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vocabulary"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">Vocabulary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vectorizer"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">Vectorizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dataloader"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">Dataloader</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Percptron-Classifier"><span class="nav-number">1.5.4.</span> <span class="nav-text">A Percptron Classifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Training-Routine"><span class="nav-number">1.5.5.</span> <span class="nav-text">The Training Routine</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Setting-The-Stage-For-The-Training-To-Begin"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">Setting The Stage For The Training To Begin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Training-Loop"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">The Training Loop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluation-Inference-and-Inspection"><span class="nav-number">1.5.6.</span> <span class="nav-text">Evaluation, Inference, and Inspection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluation-Inference-and-Inspection-1"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">Evaluation, Inference, and Inspection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inference-And-Classifying-New-Data-Points"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">Inference And Classifying New Data Points</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inspecting-Model-Weights"><span class="nav-number">1.5.6.3.</span> <span class="nav-text">Inspecting Model Weights</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">1.6.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SPiCa_zY</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>总访客
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
