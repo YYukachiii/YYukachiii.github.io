@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ddlogo.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ddlogo.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="NLP,情感分析,论文阅读,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="SPiCa" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="文本情绪分析综述，2018，中科院，中国科学院大学引言​    文本情绪分析技术可以帮助研究机构、信息咨询组织和政府决策部门掌握社会情绪动态，这种需求极大地促进了情绪分析技术的发展。 ​    情绪分析又称为细粒度类别的情感分析，情感分析也可以看做二分类的情绪分析。情绪分析是在现有粗粒度的二分类分析工作的基础上，从人类的心理学角度出发，多维度的描述人的情绪态度。 背景知识​    情绪，是多种感觉">
+<meta name="keywords" content="NLP,情感分析,论文阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="情感分析论文阅读">
+<meta property="og:url" content="http://yyukachiiii.github.io/child/2019/09/11/论文阅读/情感分析/index.html">
+<meta property="og:site_name" content="SPiCa">
+<meta property="og:description" content="文本情绪分析综述，2018，中科院，中国科学院大学引言​    文本情绪分析技术可以帮助研究机构、信息咨询组织和政府决策部门掌握社会情绪动态，这种需求极大地促进了情绪分析技术的发展。 ​    情绪分析又称为细粒度类别的情感分析，情感分析也可以看做二分类的情绪分析。情绪分析是在现有粗粒度的二分类分析工作的基础上，从人类的心理学角度出发，多维度的描述人的情绪态度。 背景知识​    情绪，是多种感觉">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-11T12:00:42.073Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="情感分析论文阅读">
+<meta name="twitter:description" content="文本情绪分析综述，2018，中科院，中国科学院大学引言​    文本情绪分析技术可以帮助研究机构、信息咨询组织和政府决策部门掌握社会情绪动态，这种需求极大地促进了情绪分析技术的发展。 ​    情绪分析又称为细粒度类别的情感分析，情感分析也可以看做二分类的情绪分析。情绪分析是在现有粗粒度的二分类分析工作的基础上，从人类的心理学角度出发，多维度的描述人的情绪态度。 背景知识​    情绪，是多种感觉">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yyukachiiii.github.io/child/2019/09/11/论文阅读/情感分析/">
+
+
+
+
+
+  <title>情感分析论文阅读 | SPiCa</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SPiCa</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+<script>
+	
+	window.onload = function(){
+		var path = 'http://yyukachiii.github.io'; //这里要改成你博客的地址
+		var localhostItem = String(window.location).split(path)[1];
+		var LiNode = document.querySelectorAll('#menu > li > a')
+		
+		for(var i = 0; i< LiNode.length;i++){
+			var item = String(LiNode[i].href).split(path)[1];
+			if(item == localhostItem && item != undefined){
+				LiNode[i].setAttribute('style','border-bottom:1px solid black');
+			}
+		}
+	};
+
+</script>
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yyukachiiii.github.io/child/2019/09/11/论文阅读/情感分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SPiCa_zY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/shaokandianerciyuan.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SPiCa">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">情感分析论文阅读</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-11T16:45:26+08:00">
+                2019-09-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index">
+                    <span itemprop="name">NLP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/论文阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="文本情绪分析综述，2018，中科院，中国科学院大学"><a href="#文本情绪分析综述，2018，中科院，中国科学院大学" class="headerlink" title="文本情绪分析综述，2018，中科院，中国科学院大学"></a>文本情绪分析综述，2018，中科院，中国科学院大学</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>​    文本情绪分析技术可以帮助研究机构、信息咨询组织和政府决策部门掌握社会情绪动态，这种需求极大地促进了情绪分析技术的发展。</p>
+<p>​    <font color="#ff0000"><strong>情绪分析</strong></font>又称为细粒度类别的情感分析，情感分析也可以看做二分类的情绪分析。情绪分析是在现有粗粒度的二分类分析工作的基础上，从人类的心理学角度出发，多维度的描述人的情绪态度。</p>
+<h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><p>​    <font color="#ff0000"><strong>情绪</strong></font>，是多种感觉、思想、行为综合产生的生理和心理状态，是对外界刺激所产生的生理反应。情感是多种情绪的综合表现，而情绪是情感的具体组成。</p>
+<h3 id="情绪分类理论"><a href="#情绪分类理论" class="headerlink" title="情绪分类理论"></a>情绪分类理论</h3><p>​    美国心理学家Ekman提出一个基础情绪理论，认为基本情绪包括高兴(joy)、悲伤(sadness)、愤怒(anger)、恐惧(fear)、厌恶(disgust)和诧异(surprise)。</p>
+<p>​    美国心理学家Plutchik在此基础上提出的一个情绪模型定义了8中基本双向情绪，包括前六种以及信任(trust)、期望(anticipation)。</p>
+<p>​    此外，从分层的角度出发，英国心理学家Parrott提出了一种基于树结构的情绪分类模型，由6种基本情绪组成，分别为爱(love)、高兴(joy)、诧异(surprise)、愤怒(anger)、悲伤(sadness)和恐惧(fear)。</p>
+<h3 id="文本情绪分析应用"><a href="#文本情绪分析应用" class="headerlink" title="文本情绪分析应用"></a>文本情绪分析应用</h3><h4 id="舆情监控"><a href="#舆情监控" class="headerlink" title="舆情监控"></a>舆情监控</h4><p>​    所谓网络舆情，就是对社会热门问题持有不同看法的网络舆论，是社会舆论的一种表现形式，是公众通过互联网对现实生活中某些热点、焦点问题发表具有较强影响力、倾向性的言论和观点。</p>
+<h4 id="商业决策"><a href="#商业决策" class="headerlink" title="商业决策"></a>商业决策</h4><p>​    商品评论分析。</p>
+<h4 id="观点搜索"><a href="#观点搜索" class="headerlink" title="观点搜索"></a>观点搜索</h4><p>​    用户在海量信息中的搜索过程中同时考虑关键字和哟用户的情感需求，能够使搜索变得更加便捷、准确和智能。</p>
+<p>​    任务是从海量文本信息中查询文本所蕴含的观点，并根据主题相关度和观点倾向性的结果进行排序。</p>
+<h4 id="信息预测"><a href="#信息预测" class="headerlink" title="信息预测"></a>信息预测</h4><p>​    通过对微博上新闻、评论等信息进行分析，预测事件的发展趋势。</p>
+<h5 id="金融预测"><a href="#金融预测" class="headerlink" title="金融预测"></a>金融预测</h5><p>​    例如通过对股票的评论的分析，能够在一定程度上预测股市变化的趋势。</p>
+<h5 id="选情预测"><a href="#选情预测" class="headerlink" title="选情预测"></a>选情预测</h5><p>​    例如通过分析Twitter上各竞选团队的评论，制定针对摇摆州的特定宣传政策；通过对网络新闻的分析，预测大选的结果等。</p>
+<h5 id="其他预测"><a href="#其他预测" class="headerlink" title="其他预测"></a>其他预测</h5><p>​    还可以用于对政策性时间的民意预测。</p>
+<p>​    这个我觉得挺有意思的。</p>
+<h4 id="情绪管理"><a href="#情绪管理" class="headerlink" title="情绪管理"></a>情绪管理</h4><p>​    通过对用户情绪分析，可以让用户更加了解自我，从而找到更加适合自己的方式去学习、工作和生活。</p>
+<h2 id="情感分析"><a href="#情感分析" class="headerlink" title="情感分析"></a>情感分析</h2><p>​    情感分析的任务主要包括：情感信息抽取、情感分类、情感检索与归纳。</p>
+<h3 id="情感信息抽取"><a href="#情感信息抽取" class="headerlink" title="情感信息抽取"></a>情感信息抽取</h3><p>​        包括识别情感表达者、评价对象以及情感观点等有价值的任务。</p>
+<h3 id="情感分类"><a href="#情感分类" class="headerlink" title="情感分类"></a>情感分类</h3><ul>
+<li>任务：<ul>
+<li>识别指定文本的主观性观点，并判断文本情感的政府倾向性。</li>
+</ul>
+</li>
+<li>分类<ul>
+<li>基于词典和规则的方法</li>
+<li>基于机器学习的方法</li>
+</ul>
+</li>
+</ul>
+<h3 id="情感摘要和检索"><a href="#情感摘要和检索" class="headerlink" title="情感摘要和检索"></a>情感摘要和检索</h3><h4 id="情感摘要"><a href="#情感摘要" class="headerlink" title="情感摘要"></a>情感摘要</h4><ul>
+<li>任务：<ul>
+<li>对带有情感的文本进行浓缩、提炼从而产生文本所表达的关于情感意见的摘要。</li>
+</ul>
+</li>
+</ul>
+<h4 id="情感检索"><a href="#情感检索" class="headerlink" title="情感检索"></a>情感检索</h4><ul>
+<li>任务：<ul>
+<li>检索和查询相关观点的文档或句子</li>
+<li>根据主题性相关性和观点倾向性对检索出的文档或句子进行排序</li>
+</ul>
+</li>
+</ul>
+<h2 id="情绪分析"><a href="#情绪分析" class="headerlink" title="情绪分析"></a>情绪分析</h2><ul>
+<li>任务：<ul>
+<li>指通过提取文本中的情绪要素，将文本划分到一个或多个预定义的情绪类别中。</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于词典和规则的情绪分类方法"><a href="#基于词典和规则的情绪分类方法" class="headerlink" title="基于词典和规则的情绪分类方法"></a>基于词典和规则的情绪分类方法</h3><ul>
+<li>能体现文本的非结构化特征</li>
+<li>处理速度快且精度高</li>
+</ul>
+<h4 id="基于词典的情绪分类方法"><a href="#基于词典的情绪分类方法" class="headerlink" title="基于词典的情绪分类方法"></a>基于词典的情绪分类方法</h4><p>​    基于词典的方法主要利用情绪词典资源，将语料库中的情绪表达关键字提取出来，并藉此对语料进行情绪分类。</p>
+<h4 id="基于规则的情绪分类"><a href="#基于规则的情绪分类" class="headerlink" title="基于规则的情绪分类"></a>基于规则的情绪分类</h4><p>​    虽然基于规则的情绪方法可以在较短时间内获得分类结果，且可以加入事前起因等其他规则来提高情绪分类的准确率，但在数据量较大时，规则的维护比较复杂，且不易扩展．</p>
+<h3 id="基于机器学习的情绪分类方法"><a href="#基于机器学习的情绪分类方法" class="headerlink" title="基于机器学习的情绪分类方法"></a>基于机器学习的情绪分类方法</h3><p>​    主要有有监督和半监督方法。</p>
+<h4 id="有监督学习情绪分类方法"><a href="#有监督学习情绪分类方法" class="headerlink" title="有监督学习情绪分类方法"></a>有监督学习情绪分类方法</h4><p>​    特征选取是否合适是影响有监督学习分类效果的一个主要因素，现有方法中用于情绪分类的特征主要包括词级、句子级和篇章级特征．其中，词级特征主要包括词频（例如词袋特征）、词性（例如名词、动词、连接词）、语义（例如词向量的相似度）、表情符号及其组合等．</p>
+<p>​    对于微博、即时消息等短文本由于受到字数的限制，呈现出特征稀疏、内容简短、表述直接等特点，这使得其分类效果难以得到保证。</p>
+<p>总体上，基于有监督学习的方法在准确率上优于基于词典和规则的法，但对样本数据的质量要求较高，需要花费巨大的时间成本和人力成本对语料进行标注，影响了该方法的推广．</p>
+<h4 id="半监督学习分类方法"><a href="#半监督学习分类方法" class="headerlink" title="半监督学习分类方法"></a>半监督学习分类方法</h4><p>​    半监督学习方法可以充分利用大量的未标记样本改善分类器性能，在情绪分类任务中扮演着重要的角色，研究者们对此开展了大量研究．</p>
+<p>​    该类方法的优点在于可以较方便地获得大量的标记数据用以训练样本集，解决了有标记数据集稀缺的问题．然而，该类在第１次分类过程中分错的样本，会影响到第２次分类的准确率．</p>
+<h3 id="复合情绪分类方法"><a href="#复合情绪分类方法" class="headerlink" title="复合情绪分类方法"></a>复合情绪分类方法</h3><ul>
+<li>一类是将情绪分类任务分解成有无情绪、正负情感、细粒度情绪等子任务，在分别针对不容子任务设计不同算法</li>
+<li>另一类基于子类的复合方法是将语料库先分为更细致的子类，再利用分好的子类对样本进行分析，从而获得最终的情绪分类</li>
+</ul>
+<p>​    归纳上述３类方法，主要是针对极性或单一情绪标签分类，忽略了情绪标签在实例中多情绪共存的情况．因此，情绪分析与传统的情感分析相比，从另一个维度还可以看作是一个多标签情绪分类问题．</p>
+<h3 id="其他情绪分类方法"><a href="#其他情绪分类方法" class="headerlink" title="其他情绪分类方法"></a>其他情绪分类方法</h3><p>​    传统的情绪分析方法很少认为一个文本可以同时表达多种情绪，而事实中一条语料可能出现有多种情绪共存的情况．为了更准确地把握文本中所表达的情绪信息，研究者们从另一个新的维度出发，开展了基于多标签情绪分类的研究．</p>
+<h2 id="研究展望"><a href="#研究展望" class="headerlink" title="研究展望"></a>研究展望</h2><h3 id="面临的挑战"><a href="#面临的挑战" class="headerlink" title="面临的挑战"></a>面临的挑战</h3><h4 id="数据稀缺性"><a href="#数据稀缺性" class="headerlink" title="数据稀缺性"></a>数据稀缺性</h4><p>​    无论是情绪训练语料还是情绪词典资源，都处于比较匮乏的阶段。</p>
+<h4 id="类别不平衡"><a href="#类别不平衡" class="headerlink" title="类别不平衡"></a>类别不平衡</h4><p>​    收集到的样本中情绪各类别的数量明显存在差异。</p>
+<h4 id="领域依赖性"><a href="#领域依赖性" class="headerlink" title="领域依赖性"></a>领域依赖性</h4><p>​    情绪词在不同领域的表达存在差异</p>
+<h3 id="未来研究方向"><a href="#未来研究方向" class="headerlink" title="未来研究方向"></a>未来研究方向</h3><p>​    未来文本情绪分析的研究还需要关注如下几个方面：</p>
+<ul>
+<li>基于多媒体融合的情绪分析</li>
+<li>基于领域自适应的情绪分析</li>
+<li>基于社交网络分析的情绪分析</li>
+<li>基于深层语义的情绪分析</li>
+</ul>
+<p>​    文本情绪分析的新的应用需求：</p>
+<ul>
+<li>面向大数据的文本情绪费</li>
+<li>面向特定主题的情绪分析</li>
+<li>面向个性化的情绪分析</li>
+<li>面向多语言的情绪分析</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文本情绪分析作为自然语言处理和文本挖掘中一个新兴的研究方向，有着很广泛的应用前景．情感分析的研究已经比较成熟，而情绪分析的研究尚处于起步阶段，且国内研究较少．</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NLP/" rel="tag"># NLP</a>
+          
+            <a href="/tags/情感分析/" rel="tag"># 情感分析</a>
+          
+            <a href="/tags/论文阅读/" rel="tag"># 论文阅读</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/11/论文阅读/一些感兴趣的方向的论文阅读/" rel="next" title="一些感兴趣方向的论文阅读">
+                <i class="fa fa-chevron-left"></i> 一些感兴趣方向的论文阅读
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/11/随笔/学习记录/" rel="prev" title="记录一下自己的学习进度">
+                记录一下自己的学习进度 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/shaokandianerciyuan.jpg" alt="SPiCa_zY">
+            
+              <p class="site-author-name" itemprop="name">SPiCa_zY</p>
+              <p class="site-description motion-element" itemprop="description">一个平凡而又不甘于平凡的人。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YYukachiii" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/SPiCa68541996" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/yyukachiii" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.hankcs.com/" title="Hankcs" target="_blank">Hankcs</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文本情绪分析综述，2018，中科院，中国科学院大学"><span class="nav-number">1.</span> <span class="nav-text">文本情绪分析综述，2018，中科院，中国科学院大学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景知识"><span class="nav-number">1.2.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情绪分类理论"><span class="nav-number">1.2.1.</span> <span class="nav-text">情绪分类理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本情绪分析应用"><span class="nav-number">1.2.2.</span> <span class="nav-text">文本情绪分析应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#舆情监控"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">舆情监控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#商业决策"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">商业决策</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#观点搜索"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">观点搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信息预测"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">信息预测</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#金融预测"><span class="nav-number">1.2.2.4.1.</span> <span class="nav-text">金融预测</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选情预测"><span class="nav-number">1.2.2.4.2.</span> <span class="nav-text">选情预测</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他预测"><span class="nav-number">1.2.2.4.3.</span> <span class="nav-text">其他预测</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情绪管理"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">情绪管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#情感分析"><span class="nav-number">1.3.</span> <span class="nav-text">情感分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情感信息抽取"><span class="nav-number">1.3.1.</span> <span class="nav-text">情感信息抽取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情感分类"><span class="nav-number">1.3.2.</span> <span class="nav-text">情感分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情感摘要和检索"><span class="nav-number">1.3.3.</span> <span class="nav-text">情感摘要和检索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#情感摘要"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">情感摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情感检索"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">情感检索</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#情绪分析"><span class="nav-number">1.4.</span> <span class="nav-text">情绪分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于词典和规则的情绪分类方法"><span class="nav-number">1.4.1.</span> <span class="nav-text">基于词典和规则的情绪分类方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于词典的情绪分类方法"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">基于词典的情绪分类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于规则的情绪分类"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">基于规则的情绪分类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于机器学习的情绪分类方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">基于机器学习的情绪分类方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有监督学习情绪分类方法"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">有监督学习情绪分类方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#半监督学习分类方法"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">半监督学习分类方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合情绪分类方法"><span class="nav-number">1.4.3.</span> <span class="nav-text">复合情绪分类方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他情绪分类方法"><span class="nav-number">1.4.4.</span> <span class="nav-text">其他情绪分类方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#研究展望"><span class="nav-number">1.5.</span> <span class="nav-text">研究展望</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面临的挑战"><span class="nav-number">1.5.1.</span> <span class="nav-text">面临的挑战</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据稀缺性"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">数据稀缺性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类别不平衡"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">类别不平衡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#领域依赖性"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">领域依赖性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未来研究方向"><span class="nav-number">1.5.2.</span> <span class="nav-text">未来研究方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SPiCa_zY</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>总访客
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

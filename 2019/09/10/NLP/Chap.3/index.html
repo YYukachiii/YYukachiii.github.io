@@ -122,15 +122,15 @@
 <meta name="description" content="Chapter 3.神经网络基础组件Perceptron: The Simplest Neural Network​    图解感知机结构：(图的链接是在是太长了，要考虑一下解决办法)  ​    激活函数的选择有很多种，这里选择了Sigmoid函数。 Activation Functions​    这里列出本书中用到的四个激活函数：(都已经比较熟悉了，就不多做解释了)  Sigmod 12x">
 <meta name="keywords" content="NLP,PyTorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用PyTorch学习NLP Chapter 1.神经网络基础组件">
+<meta property="og:title" content="用PyTorch学习NLP Chapter 3.神经网络基础组件">
 <meta property="og:url" content="http://yyukachiiii.github.io/child/2019/09/10/NLP/Chap.3/index.html">
 <meta property="og:site_name" content="SPiCa">
 <meta property="og:description" content="Chapter 3.神经网络基础组件Perceptron: The Simplest Neural Network​    图解感知机结构：(图的链接是在是太长了，要考虑一下解决办法)  ​    激活函数的选择有很多种，这里选择了Sigmoid函数。 Activation Functions​    这里列出本书中用到的四个激活函数：(都已经比较熟悉了，就不多做解释了)  Sigmod 12x">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="data:image/png;base64,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">
-<meta property="og:updated_time" content="2019-09-11T07:00:44.816Z">
+<meta property="og:updated_time" content="2019-09-17T01:16:58.228Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用PyTorch学习NLP Chapter 1.神经网络基础组件">
+<meta name="twitter:title" content="用PyTorch学习NLP Chapter 3.神经网络基础组件">
 <meta name="twitter:description" content="Chapter 3.神经网络基础组件Perceptron: The Simplest Neural Network​    图解感知机结构：(图的链接是在是太长了，要考虑一下解决办法)  ​    激活函数的选择有很多种，这里选择了Sigmoid函数。 Activation Functions​    这里列出本书中用到的四个激活函数：(都已经比较熟悉了，就不多做解释了)  Sigmod 12x">
 <meta name="twitter:image" content="data:image/png;base64,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">
 
@@ -168,7 +168,7 @@
 
 
 
-  <title>用PyTorch学习NLP Chapter 1.神经网络基础组件 | SPiCa</title>
+  <title>用PyTorch学习NLP Chapter 3.神经网络基础组件 | SPiCa</title>
   
 
 
@@ -350,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">用PyTorch学习NLP Chapter 1.神经网络基础组件</h1>
+          <h1 class="post-title" itemprop="name headline">用PyTorch学习NLP Chapter 3.神经网络基础组件</h1>
         
 
         <div class="post-meta">
@@ -744,6 +744,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/09/11/论文阅读/一些感兴趣的方向的论文阅读/" rel="prev" title="一些感兴趣方向的论文阅读">
+                一些感兴趣方向的论文阅读 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -821,7 +825,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -832,7 +836,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -843,7 +847,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
